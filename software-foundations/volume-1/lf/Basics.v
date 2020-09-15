@@ -93,6 +93,21 @@ Definition next_weekday (d:day) : day :=
   | saturday  => monday
   | sunday    => monday
   end.
+  
+Inductive foo : Type :=
+| me
+| you.
+  
+Compute (
+match (match me with me => monday | you => friday) with
+| monday => 0
+| tuesday => 1
+| wednesday => 2
+| thursday => 3
+| friday => 4
+| saturday => 5
+| sunday => 6
+end).
 
 (** One point to note is that the argument and return types of
     this function are explicitly declared.  Like most functional
